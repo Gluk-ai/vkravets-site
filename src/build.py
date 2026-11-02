@@ -192,7 +192,7 @@ def page(c):
       <h2 class="sec-h rv" id="cert-h"><span class="num">05</span>{c["cert_h"]}</h2>
       <div class="rv">
         <ul class="certs">{certs}</ul>
-        <p class="edu"><b>{c["edu_degree"]}</b><br>{c["edu_school"]}</p>
+        <p class="edu"><b>{c["edu_degree"]}</b><span class="edu-note">{c["edu_note"]}</span>{c["edu_school"]}</p>
       </div>
     </div>
   </section>

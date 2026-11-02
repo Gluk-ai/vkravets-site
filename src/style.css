@@ -107,7 +107,8 @@ nav a.hide-sm{display:none}
 a.cert:hover{background:var(--ink);color:var(--paper)}
 .cert small{font:500 11px var(--mono);opacity:.6}
 .edu{margin-top:26px;color:var(--ink-2)}
-.edu b{font:600 18px/1.35 var(--serif);color:var(--ink)}
+.edu b{display:block;font:600 19px/1.35 var(--serif);color:var(--ink)}
+.edu-note{display:block;margin:4px 0 2px;font:500 12.5px/1.5 var(--mono);color:var(--muted)}
 
 /* footer */
 .foot{padding:72px 0 40px;border-top:1px solid var(--line);text-align:center}
