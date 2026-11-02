@@ -113,7 +113,10 @@ def page(c):
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/icon-48.png" type="image/png" sizes="48x48">
+<link rel="apple-touch-icon" href="/icon-192.png">
 {preloads}
 <script type="application/ld+json">{json.dumps(person, ensure_ascii=False)}</script>
 <script>if(!matchMedia("(prefers-reduced-motion: reduce)").matches&&"IntersectionObserver" in window)document.documentElement.classList.add("js")</script>
