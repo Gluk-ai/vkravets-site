@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Vasyl Kravets — AI automation & web developer</title>
-<meta name="description" content="Vasyl Kravets builds AI assistants, n8n automations and interactive websites — and ships them live. Vaughan, Ontario. Résumé, projects and contact.">
+<meta name="description" content="Vasyl Kravets builds AI assistants, automations and websites — and the Python backend they run on — and ships them live. Vaughan, Ontario. Résumé, projects and contact.">
 <meta name="theme-color" content="#f5f1e8">
 <link rel="canonical" href="https://vkravets.com/">
 <link rel="alternate" hreflang="en" href="https://vkravets.com/">
@@ -14,7 +14,7 @@
 <meta property="og:type" content="profile">
 <meta property="og:locale" content="en_CA">
 <meta property="og:title" content="Vasyl Kravets — AI automation &amp; web developer">
-<meta property="og:description" content="AI assistants, n8n automations and interactive websites — built and shipped live. Vaughan, Ontario.">
+<meta property="og:description" content="AI assistants, automations and websites on my own Python backend — built and shipped live. Vaughan, Ontario.">
 <meta property="og:url" content="https://vkravets.com/">
 <meta property="og:image" content="https://vkravets.com/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -226,7 +226,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
       <div>
         <h1>Vasyl<br>Kravets</h1>
         <p class="role">AI automation &amp; web developer</p>
-        <p class="intro">I build AI assistants, n8n automations and interactive websites — and ship them live. Based in Vaughan, Ontario.</p>
+        <p class="intro">I build AI assistants, automations and websites — plus the Python backend they run on — and ship them live. Based in Vaughan, Ontario.</p>
         <p class="status">Open to Design &amp; AI roles in Canada</p>
         <div class="ctas">
           <a class="btn" href="#work">See my work</a>
@@ -270,7 +270,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="wrap two">
       <h2 class="sec-h rv" id="about-h"><span class="num">01</span>About</h2>
       <div class="rv">
-        <p class="lead">I build working AI chatbots, workflow automations and multilingual websites end to end — from the knowledge base and guardrails to hosting and domains — with Claude, n8n and modern web tools. Before that: ten years of hands-on technical work in industrial mechanics and commercial glazing. I test everything before it ships, and the projects below are live — open them and try.</p>
+        <p class="lead">I build working AI chatbots, workflow automations and multilingual websites end to end — from the knowledge base and guardrails to the FastAPI backend, database, tests and my own server — with Claude, Python, n8n and modern web tools. Before that: ten years of hands-on technical work in industrial mechanics and commercial glazing. I test everything before it ships, and the projects below are live — open them and try.</p>
         <div class="facts"><p><b>Based in</b>Vaughan, Ontario</p><p><b>Languages</b>English · Ukrainian · Russian</p><p><b>Practice</b><a href="https://corepulsedev.com">CorePulse</a></p></div>
       </div>
     </div>
@@ -281,20 +281,36 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
       <h2 class="sec-h rv" id="work-h"><span class="num">02</span>Selected work<span class="note">live, not slides</span></h2>
       <div class="projs">
         <article class="proj rv">
+          <p class="proj-meta"><span>Nov 2026 – now</span><span>own backend</span></p>
+          <h3>CorePulse Core</h3>
+          <p class="proj-sub">FastAPI backend · WhatsApp AI agent</p>
+          <p class="d">One Python backend for all my bots: a WhatsApp assistant on a live business number, the corepulsedev.com site chat and NorthFrame. Claude answers with dialog memory in Postgres; a lead is collected for a few minutes and sent to Telegram as one complete message. 159 automated tests, CI on GitHub Actions, and the server deploys itself from main.</p>
+          <ul class="tags"><li class="tag">Python · FastAPI</li><li class="tag">PostgreSQL</li><li class="tag">Claude API</li><li class="tag">WhatsApp Cloud API</li><li class="tag">Docker</li></ul>
+          <a class="proj-link" href="https://wa.me/13659902102" target="_blank" rel="noopener">wa.me/13659902102 ↗</a>
+        </article>
+        <article class="proj rv">
           <p class="proj-meta"><span>2026 – now</span><span>own practice</span></p>
           <h3>CorePulse</h3>
           <p class="proj-sub">AI automation &amp; web</p>
-          <p class="d">My company site: a live particle hero, a Claude-powered assistant in four languages, and a contact flow that lands in Telegram and Google Sheets through self-hosted n8n.</p>
-          <ul class="tags"><li class="tag">Claude API</li><li class="tag">React</li><li class="tag">n8n</li><li class="tag">Telegram</li></ul>
+          <p class="d">My company site: a live particle hero, a “Try it” picker that turns a business task into an automation scheme, and a Claude assistant in four languages. In Nov 2026 I moved it off Lovable: now it is static files on my own server, and the chat, picker and contact form run through my FastAPI backend.</p>
+          <ul class="tags"><li class="tag">Claude API</li><li class="tag">React</li><li class="tag">FastAPI</li><li class="tag">Caddy · DigitalOcean</li></ul>
           <a class="proj-link" href="https://corepulsedev.com" target="_blank" rel="noopener">corepulsedev.com ↗</a>
         </article>
         <article class="proj rv">
-          <p class="proj-meta"><span>Oct 2026</span><span>portfolio concept</span></p>
+          <p class="proj-meta"><span>Oct 2026 – now</span><span>portfolio concept</span></p>
           <h3>NorthFrame Windows</h3>
           <p class="proj-sub">AI chat + lead routing</p>
-          <p class="d">A fictional GTA window-replacement company. The chat answers residents in five languages; property-manager requests are scored by Claude, written to Google Sheets and pushed to a coordinator bot. The knowledge base comes from my own four years on suspended platforms.</p>
-          <ul class="tags"><li class="tag">Claude</li><li class="tag">n8n · DigitalOcean</li><li class="tag">Google Sheets</li><li class="tag">5 languages</li></ul>
+          <p class="d">A fictional GTA window-replacement company. The chat answers residents in five languages; property-manager requests are scored by Claude and pushed to a coordinator bot in Telegram built on n8n. Since Nov 2026 the site runs on my own server, with chat and forms going through my FastAPI backend. The knowledge base comes from my own four years on suspended platforms.</p>
+          <ul class="tags"><li class="tag">Claude</li><li class="tag">FastAPI</li><li class="tag">n8n · Telegram</li><li class="tag">5 languages</li></ul>
           <a class="proj-link" href="https://northframe.corepulsedev.com" target="_blank" rel="noopener">northframe.corepulsedev.com ↗</a>
+        </article>
+        <article class="proj rv">
+          <p class="proj-meta"><span>Nov 2026</span><span>open source</span></p>
+          <h3>ai-web-qa-kit</h3>
+          <p class="proj-sub">QA toolkit for AI-built sites &amp; chatbots</p>
+          <p class="d">A public MIT-licensed toolkit: Playwright checks of layouts across devices and languages, scans for leaked secrets and open database access, promptfoo tests for chatbots, and a Claude skill that turns the reports into bug reports in Kaner’s format.</p>
+          <ul class="tags"><li class="tag">Playwright</li><li class="tag">promptfoo</li><li class="tag">gitleaks</li><li class="tag">Claude skills</li></ul>
+          <a class="proj-link" href="https://github.com/Gluk-ai/ai-web-qa-kit" target="_blank" rel="noopener">github.com/Gluk-ai/ai-web-qa-kit ↗</a>
         </article>
       </div>
     </div>
@@ -304,7 +320,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="wrap two">
       <h2 class="sec-h rv" id="exp-h"><span class="num">03</span>Experience</h2>
       <ol>
-        <li class="job rv"><span class="when">2026 – now</span><div><h3>Founder · AI Automation &amp; Web Developer</h3><p class="where">CorePulse, Vaughan ON</p><p class="d">AI assistants, n8n automations and interactive websites for construction, manufacturing and field-service companies.</p></div></li>
+        <li class="job rv"><span class="when">2026 – now</span><div><h3>Founder · AI Automation &amp; Web Developer</h3><p class="where">CorePulse, Vaughan ON</p><p class="d">AI assistants for WhatsApp and websites on my own FastAPI backend, n8n automations and interactive websites for construction, manufacturing and field-service companies.</p></div></li>
         <li class="job rv"><span class="when">Aug – Oct 2026</span><div><h3>Mechanical Assembler</h3><p class="where">Roshel Inc.</p><p class="d">Assembly of armored-vehicle components following drawings, work instructions and quality requirements.</p></div></li>
         <li class="job rv"><span class="when">2022 – 2026</span><div><h3>Window Installer / Glazier</h3><p class="where">Commercial glazing, GTA</p><p class="d">Window replacement in occupied residential towers up to 30 storeys, working from suspended work platforms under Ontario fall-protection rules.</p></div></li>
         <li class="job rv"><span class="when">2016 – 2021</span><div><h3>Industrial Equipment Service &amp; Repair Mechanic</h3><p class="where">ENETEP LLC, Ukraine</p><p class="d">Troubleshooting and repair of industrial equipment; reading technical drawings and documentation.</p></div></li>
@@ -316,10 +332,11 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="wrap two">
       <h2 class="sec-h rv" id="skills-h"><span class="num">04</span>Skills</h2>
       <div class="skills">
-        <div class="skill-group rv"><h4>AI</h4><ul class="chips"><li class="chip">Claude API &amp; Claude Code</li><li class="chip">Agents &amp; subagents</li><li class="chip">Prompt engineering</li><li class="chip">LLM guardrails</li><li class="chip">Knowledge-base design</li><li class="chip">Multilingual chatbots</li></ul></div>
-        <div class="skill-group rv"><h4>Automation</h4><ul class="chips"><li class="chip">n8n (self-hosted)</li><li class="chip">Telegram Bot API</li><li class="chip">Google Sheets API</li><li class="chip">REST &amp; webhooks</li></ul></div>
-        <div class="skill-group rv"><h4>Web</h4><ul class="chips"><li class="chip">React + Tailwind (AI-assisted)</li><li class="chip">Lovable</li><li class="chip">Git / GitHub</li><li class="chip">DNS &amp; domains</li><li class="chip">Docker · DigitalOcean</li></ul></div>
-        <div class="skill-group rv"><h4>Also</h4><ul class="chips"><li class="chip">QA &amp; software testing</li><li class="chip">Python basics</li><li class="chip">Excel</li><li class="chip">Technical drawings</li></ul></div>
+        <div class="skill-group rv"><h4>AI</h4><ul class="chips"><li class="chip">Claude API &amp; Claude Code</li><li class="chip">Agents &amp; subagents</li><li class="chip">Prompt engineering</li><li class="chip">LLM guardrails</li><li class="chip">Chatbot testing (promptfoo)</li><li class="chip">Knowledge-base design</li><li class="chip">Multilingual chatbots</li></ul></div>
+        <div class="skill-group rv"><h4>Backend</h4><ul class="chips"><li class="chip">Python · FastAPI</li><li class="chip">PostgreSQL · SQLAlchemy · Alembic</li><li class="chip">pytest · ruff</li><li class="chip">GitHub Actions CI/CD</li><li class="chip">Docker · Linux server</li></ul></div>
+        <div class="skill-group rv"><h4>Automation</h4><ul class="chips"><li class="chip">n8n (self-hosted)</li><li class="chip">WhatsApp Cloud API</li><li class="chip">Telegram Bot API</li><li class="chip">Google Sheets API</li><li class="chip">REST &amp; webhooks</li></ul></div>
+        <div class="skill-group rv"><h4>Web</h4><ul class="chips"><li class="chip">React + Tailwind (AI-assisted)</li><li class="chip">Lovable</li><li class="chip">Git / GitHub</li><li class="chip">DNS &amp; domains</li><li class="chip">Caddy · DigitalOcean</li></ul></div>
+        <div class="skill-group rv"><h4>Also</h4><ul class="chips"><li class="chip">QA &amp; software testing</li><li class="chip">Playwright</li><li class="chip">Excel</li><li class="chip">Technical drawings</li></ul></div>
       </div>
     </div>
   </section>
@@ -343,7 +360,6 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="ctas rv">
       <a class="btn" href="mailto:hello@corepulsedev.com">hello@corepulsedev.com</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/kravetsCP" target="_blank" rel="noopener">LinkedIn ↗</a>
-      <a class="btn ghost" href="https://wa.me/13659902102?text=Hi%20Vasyl%2C%20I%20saw%20your%20resume%20site" target="_blank" rel="noopener" title="Chat with the CorePulse AI assistant">WhatsApp · AI assistant ↗</a>
       <a class="btn ghost" href="/Vasyl-Kravets-Resume.pdf" download>Download PDF ↓</a>
     </div>
     <p class="copy">© 2026 Vasyl Kravets · Vaughan, Ontario</p>
