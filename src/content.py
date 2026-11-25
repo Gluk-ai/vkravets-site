@@ -42,7 +42,7 @@ EN = dict(
     skills=[
         ("AI", ["Claude API &amp; Claude Code", "Agents &amp; subagents", "Prompt engineering", "LLM guardrails", "Chatbot testing (promptfoo)", "Knowledge-base design", "Multilingual chatbots"]),
         ("Backend", ["Python · FastAPI", "PostgreSQL · SQLAlchemy · Alembic", "pytest · ruff", "GitHub Actions CI/CD", "Docker · Linux server"]),
-        ("Automation", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "Google Sheets API", "REST &amp; webhooks"]),
+        ("Automation", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "REST &amp; webhooks"]),
         ("Web", ["React + Tailwind (AI-assisted)", "Lovable", "Git / GitHub", "DNS &amp; domains", "Caddy · DigitalOcean"]),
         ("Also", ["QA &amp; software testing", "Playwright", "Excel", "Technical drawings"]),
     ],
@@ -97,7 +97,7 @@ UA = dict(
     skills=[
         ("AI", ["Claude API і Claude Code", "Агенти й субагенти", "Промпт-інжиніринг", "Обмеження для LLM", "Тестування чатботів (promptfoo)", "Проєктування бази знань", "Багатомовні чатботи"]),
         ("Бекенд", ["Python · FastAPI", "PostgreSQL · SQLAlchemy · Alembic", "pytest · ruff", "GitHub Actions CI/CD", "Docker · Linux-сервер"]),
-        ("Автоматизація", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "Google Sheets API", "REST і вебхуки"]),
+        ("Автоматизація", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "REST і вебхуки"]),
         ("Веб", ["React + Tailwind (з AI)", "Lovable", "Git / GitHub", "DNS і домени", "Caddy · DigitalOcean"]),
         ("Також", ["QA і тестування ПЗ", "Playwright", "Excel", "Технічні креслення"]),
     ],
@@ -152,7 +152,7 @@ RU = dict(
     skills=[
         ("AI", ["Claude API и Claude Code", "Агенты и субагенты", "Промпт-инжиниринг", "Ограничения для LLM", "Тестирование чатботов (promptfoo)", "Проектирование базы знаний", "Многоязычные чатботы"]),
         ("Бэкенд", ["Python · FastAPI", "PostgreSQL · SQLAlchemy · Alembic", "pytest · ruff", "GitHub Actions CI/CD", "Docker · Linux-сервер"]),
-        ("Автоматизация", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "Google Sheets API", "REST и вебхуки"]),
+        ("Автоматизация", ["n8n (self-hosted)", "WhatsApp Cloud API", "Telegram Bot API", "REST и вебхуки"]),
         ("Веб", ["React + Tailwind (с AI)", "Lovable", "Git / GitHub", "DNS и домены", "Caddy · DigitalOcean"]),
         ("Также", ["QA и тестирование ПО", "Playwright", "Excel", "Технические чертежи"]),
     ],
