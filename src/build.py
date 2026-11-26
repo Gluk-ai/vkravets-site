@@ -132,6 +132,7 @@ def page(c):
       <a class="hide-sm" href="#work">{nav[0]}</a>
       <a class="hide-sm" href="#experience">{nav[1]}</a>
       <a class="hide-sm" href="#skills">{nav[2]}</a>
+      <a class="hide-sm" href="/core/">{c["nav_case"]}</a>
       {lang_select(c)}
       <a class="nav-cta" href="#contact">{nav[3]}</a>
     </nav>
@@ -149,6 +150,7 @@ def page(c):
         <div class="ctas">
           <a class="btn" href="#work">{c["cta_work"]}</a>
           <a class="btn ghost" href="/Vasyl-Kravets-Resume.pdf" download>{c["cta_pdf"]}</a>
+          <a class="btn ghost" href="/core/">{c["cta_case"]}</a>
         </div>
       </div>
 

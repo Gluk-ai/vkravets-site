@@ -32,11 +32,16 @@ ul,ol{margin:0;padding:0;list-style:none}
 :focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
 .wrap{max-width:980px;margin:0 auto;padding:0 20px}
 @media (min-width:700px){.wrap{padding:0 40px}}
-.top{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
-.mark{font:600 28px/1 var(--hand);text-decoration:none}
-.top nav{display:flex;gap:20px;font-size:14px}
-.top nav a{text-decoration:none;color:var(--muted)}
-.top nav a:hover{color:var(--ink)}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;justify-content:space-between;align-items:center;height:64px;gap:16px;max-width:1120px;margin:0 auto;padding:0 20px}
+@media (min-width:700px){.top-in{padding:0 40px}}
+.mark{font:600 28px/1 var(--hand);text-decoration:none;white-space:nowrap}
+.top nav{display:flex;align-items:center;gap:22px;font-size:14px}
+.top nav a{text-decoration:none;color:var(--muted);transition:color .15s}
+.top nav a:hover,.top nav a[aria-current]{color:var(--ink)}
+.top nav a.hide-sm{display:none}
+@media (min-width:760px){.top nav a.hide-sm{display:inline}}
+.nav-cta{display:inline-flex;align-items:center;min-height:40px;border:1px solid var(--ink);border-radius:999px;padding:0 16px;color:var(--ink)!important}
 .hero{padding:56px 0 40px}
 .kicker{font:500 12.5px var(--mono);color:var(--muted);display:inline-flex;align-items:center;gap:8px}
 .kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px #5c9a5a22}
@@ -92,11 +97,20 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;color
 </style>
 </head>
 <body>
-<div class="wrap">
-<header class="top">
-  <a class="mark" href="/">Vasyl Kravets</a>
-  <nav><a href="/#projects">Projects</a><a href="https://github.com/Gluk-ai">GitHub</a><a href="mailto:hello@corepulsedev.com">Contact</a></nav>
+<header class="top" id="top">
+  <div class="top-in">
+    <a class="mark" href="/" aria-label="Vasyl Kravets">Vasyl Kravets</a>
+    <nav aria-label="Main">
+      <a class="hide-sm" href="/#work">Work</a>
+      <a class="hide-sm" href="/#experience">Experience</a>
+      <a class="hide-sm" href="/#skills">Skills</a>
+      <a class="hide-sm" href="/core/" aria-current="page">Case study</a>
+      <a class="nav-cta" href="/#contact">Contact</a>
+    </nav>
+  </div>
 </header>
+<div class="wrap">
+
 
 <main>
 <section class="hero">
