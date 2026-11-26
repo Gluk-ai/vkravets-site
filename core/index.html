@@ -166,8 +166,8 @@ footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;color
   <div class="cards">
     <div class="card"><h3>WhatsApp assistant</h3><p>A live business number on the Meta Cloud API. Answers questions about CorePulse, collects a lead and sends it to me in Telegram.</p><span class="tag">live</span></div>
     <div class="card"><h3>corepulsedev.com</h3><p>The site chat, the "try it" automation picker and the contact form all go through the core. I moved the site off a no-code builder to my own server.</p><span class="tag">live</span></div>
-    <div class="card"><h3>NorthFrame Windows</h3><p>Portfolio concept: a window-replacement company. Chat in five languages for residents and property managers, requests sorted by AI and sent to a coordinator bot.</p><span class="tag">demo</span></div>
-    <div class="card"><h3>Tactix Defence</h3><p>Portfolio concept: an armoured-vehicle advisor that answers only from its catalogue and politely refuses everything else.</p><span class="tag">demo</span></div>
+    <div class="card"><h3>NorthFrame Windows</h3><p>Portfolio concept: a window-replacement company. Chat in five languages for residents and property managers, requests sorted by AI and sent to a coordinator bot. <a href="https://northframe.corepulsedev.com">northframe.corepulsedev.com</a></p><span class="tag">demo</span></div>
+    <div class="card"><h3>Tactix Defence</h3><p>Portfolio concept: an armoured-vehicle advisor that answers only from its catalogue and politely refuses everything else. <a href="https://tactix.corepulsedev.com">tactix.corepulsedev.com</a></p><span class="tag">demo</span></div>
   </div>
 </section>
 
@@ -242,7 +242,7 @@ fail <span class="s">"🔴🔴 rollback failed too, manual check needed"</span><
       <tr><td>80</td><td>—</td><td>—</td><td>30.8</td><td>3.0 s</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Synthetic load on a single uvicorn worker in a dev container, not the production server. Claude stubbed with a fixed 2 s delay. With no delay at all the core's own overhead is about 10–15 ms per message. Status: <span id="fix-status">fix in review (pull request #30)</span>.</p>
+  <p class="note">Synthetic load on a single uvicorn worker in a dev container, not the production server. Claude stubbed with a fixed 2 s delay. With no delay at all the core's own overhead is about 10–15 ms per message. Status: <span id="fix-status">fixed and deployed to production on 26 Nov 2026</span>.</p>
   <h3>Before and after: NorthFrame requests</h3>
   <p>In n8n, a workflow read a Google Sheet every minute to find new requests: once a minute, around the clock: about 1,440 runs a day, 1.4 s each, even when nobody wrote in. It was switched off when NorthFrame moved to the core. In the core, a background task checks its own PostgreSQL table every 30 seconds, and a request that wasn't sent yet survives a restart. The one real request so far reached the coordinator's Telegram 14 seconds after it was submitted, including the AI triage.</p>
 </section>
