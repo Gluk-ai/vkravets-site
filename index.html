@@ -119,7 +119,7 @@ nav a.hide-sm{display:none}
 
 /* projects */
 .projs{display:grid;gap:18px}
-@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}.projs .proj:last-child:nth-child(odd){grid-column:1/-1}}
 .proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .proj:hover{transform:translateY(-3px) rotate(-.25deg);box-shadow:4px 6px 0 var(--line)}
 .proj-meta{display:flex;justify-content:space-between;gap:12px;font:500 12px var(--mono);color:var(--faint)}
@@ -270,7 +270,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="wrap two">
       <h2 class="sec-h rv" id="about-h"><span class="num">01</span>About</h2>
       <div class="rv">
-        <p class="lead">I build working AI chatbots, workflow automations and multilingual websites end to end — from the knowledge base and guardrails to the FastAPI backend, database, tests and my own server — with Claude, Python, n8n and modern web tools. Before that: ten years of hands-on technical work in industrial mechanics and commercial glazing. I test everything before it ships, and the projects below are live — open them and try.</p>
+        <p class="lead">I build working AI chatbots, workflow automations and multilingual websites end to end — from the knowledge base and guardrails to the FastAPI backend, database, tests and my own server — with Claude, Python, n8n and modern web tools. I test everything before it ships, and the projects below are live — open them and try.</p>
         <div class="facts"><p><b>Based in</b>Vaughan, Ontario</p><p><b>Languages</b>English · Ukrainian · Russian</p><p><b>Practice</b><a href="https://corepulsedev.com">CorePulse</a></p></div>
       </div>
     </div>
@@ -300,7 +300,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
           <p class="proj-meta"><span>Oct 2026 – now</span><span>portfolio concept</span></p>
           <h3>NorthFrame Windows</h3>
           <p class="proj-sub">AI chat + lead routing</p>
-          <p class="d">A fictional GTA window-replacement company. The chat answers residents in five languages; property-manager requests are scored by Claude and pushed to a coordinator bot in Telegram built on n8n. Since Nov 2026 the site runs on my own server, with chat and forms going through my FastAPI backend. The knowledge base comes from my own four years on suspended platforms.</p>
+          <p class="d">A fictional GTA window-replacement company. The chat answers residents in five languages; property-manager requests are scored by Claude and pushed to a coordinator bot in Telegram built on n8n. Since Nov 2026 the site runs on my own server, with chat and forms going through my FastAPI backend. The knowledge base comes from my own years on these job sites.</p>
           <ul class="tags"><li class="tag">Claude</li><li class="tag">FastAPI</li><li class="tag">n8n · Telegram</li><li class="tag">5 languages</li></ul>
           <a class="proj-link" href="https://northframe.corepulsedev.com" target="_blank" rel="noopener">northframe.corepulsedev.com ↗</a>
         </article>
@@ -329,9 +329,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
       <h2 class="sec-h rv" id="exp-h"><span class="num">03</span>Experience</h2>
       <ol>
         <li class="job rv"><span class="when">2026 – now</span><div><h3>Founder · AI Automation &amp; Web Developer</h3><p class="where">CorePulse, Vaughan ON</p><p class="d">AI assistants for WhatsApp and websites on my own FastAPI backend, n8n automations and interactive websites for construction, manufacturing and field-service companies.</p></div></li>
-        <li class="job rv"><span class="when">Aug – Oct 2026</span><div><h3>Mechanical Assembler</h3><p class="where">Roshel Inc.</p><p class="d">Assembly of armored-vehicle components following drawings, work instructions and quality requirements.</p></div></li>
-        <li class="job rv"><span class="when">2022 – 2026</span><div><h3>Window Installer / Glazier</h3><p class="where">Commercial glazing, GTA</p><p class="d">Window replacement in occupied residential towers up to 30 storeys, working from suspended work platforms under Ontario fall-protection rules.</p></div></li>
-        <li class="job rv"><span class="when">2016 – 2021</span><div><h3>Industrial Equipment Service &amp; Repair Mechanic</h3><p class="where">ENETEP LLC, Ukraine</p><p class="d">Troubleshooting and repair of industrial equipment; reading technical drawings and documentation.</p></div></li>
+        <li class="job rv"><span class="when">2016 – 2026</span><div><h3>Earlier: technical trades</h3><p class="where">Roshel Inc. · commercial glazing, GTA · ENETEP LLC, Ukraine</p><p class="d">Mechanical assembly, window installation and industrial equipment repair.</p></div></li>
       </ol>
     </div>
   </section>
@@ -344,7 +342,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
         <div class="skill-group rv"><h4>Backend</h4><ul class="chips"><li class="chip">Python · FastAPI</li><li class="chip">PostgreSQL · SQLAlchemy · Alembic</li><li class="chip">pytest · ruff</li><li class="chip">GitHub Actions CI/CD</li><li class="chip">Docker · Linux server</li></ul></div>
         <div class="skill-group rv"><h4>Automation</h4><ul class="chips"><li class="chip">n8n (self-hosted)</li><li class="chip">WhatsApp Cloud API</li><li class="chip">Telegram Bot API</li><li class="chip">REST &amp; webhooks</li></ul></div>
         <div class="skill-group rv"><h4>Web</h4><ul class="chips"><li class="chip">React + Tailwind (AI-assisted)</li><li class="chip">Lovable</li><li class="chip">Git / GitHub</li><li class="chip">DNS &amp; domains</li><li class="chip">Caddy · DigitalOcean</li></ul></div>
-        <div class="skill-group rv"><h4>Also</h4><ul class="chips"><li class="chip">QA &amp; software testing</li><li class="chip">Playwright</li><li class="chip">Excel</li><li class="chip">Technical drawings</li></ul></div>
+        <div class="skill-group rv"><h4>Also</h4><ul class="chips"><li class="chip">QA &amp; software testing</li><li class="chip">Playwright</li><li class="chip">Excel</li></ul></div>
       </div>
     </div>
   </section>
