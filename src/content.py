@@ -19,8 +19,8 @@ EN = dict(
     work_h="Selected work", work_note="live, not slides",
     projects=[
         dict(when="Nov 2026 – now", kind="own backend", title="CorePulse Core", sub="FastAPI backend · WhatsApp AI agent",
-             text="One Python backend for all my bots: a WhatsApp assistant on a live business number, the corepulsedev.com site chat and NorthFrame. Claude answers with dialog memory in Postgres; a lead is collected for a few minutes and sent to Telegram as one complete message. 159 automated tests, CI on GitHub Actions, and the server deploys itself from main.",
-             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="wa.me/13659902102"),
+             text="One Python backend for all my bots: a WhatsApp assistant on a live business number, the corepulsedev.com site chat and NorthFrame. Claude answers with dialog memory in Postgres; a lead is collected for a few minutes and sent to Telegram as one complete message. 170+ automated tests, CI on GitHub Actions, and the server deploys itself from main.",
+             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="vkravets.com/core/"),
         dict(when="2026 – now", kind="own practice", title="CorePulse", sub="AI automation &amp; web",
              text="My company site: a live particle hero, a “Try it” picker that turns a business task into an automation scheme, and a Claude assistant in four languages. In Nov 2026 I moved it off Lovable: now it is static files on my own server, and the chat, picker and contact form run through my FastAPI backend.",
              tags=["Claude API", "React", "FastAPI", "Caddy · DigitalOcean"], url="corepulsedev.com"),
@@ -30,6 +30,9 @@ EN = dict(
         dict(when="Nov 2026", kind="open source", title="ai-web-qa-kit", sub="QA toolkit for AI-built sites &amp; chatbots",
              text="A public MIT-licensed toolkit: Playwright checks of layouts across devices and languages, scans for leaked secrets and open database access, promptfoo tests for chatbots, and a Claude skill that turns the reports into bug reports in Kaner’s format.",
              tags=["Playwright", "promptfoo", "gitleaks", "Claude skills"], url="github.com/Gluk-ai/ai-web-qa-kit"),
+        dict(when="Nov 2026", kind="open source", title="field-service-sql", sub="PostgreSQL billing reports with tests",
+             text="Schema and reports for a contractor that bills property managers: AR aging, days-to-pay percentiles, crew output with window functions, data-quality checks, and a payment function that locks the invoice row. Every report is tested against a small dataset with answers worked out by hand; notes show the same queries in SQL Server.",
+             tags=["PostgreSQL", "SQL", "pytest", "GitHub Actions"], url="github.com/Gluk-ai/field-service-sql"),
     ],
     exp_h="Experience",
     jobs=[
@@ -74,8 +77,8 @@ UA = dict(
     work_h="Вибрані роботи", work_note="наживо, а не слайди",
     projects=[
         dict(when="Лист 2026 – дотепер", kind="власний бекенд", title="CorePulse Core", sub="бекенд на FastAPI · AI-агент у WhatsApp",
-             text="Один Python-бекенд для всіх моїх ботів: асистента у WhatsApp на робочому бізнес-номері, чату на сайті corepulsedev.com і NorthFrame. Claude відповідає з пам’яттю діалогу в Postgres; заявка збирається кілька хвилин і йде в Telegram одним повним повідомленням. 159 автотестів, CI на GitHub Actions, а сервер сам розгортає нову версію з main.",
-             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="wa.me/13659902102"),
+             text="Один Python-бекенд для всіх моїх ботів: асистента у WhatsApp на робочому бізнес-номері, чату на сайті corepulsedev.com і NorthFrame. Claude відповідає з пам’яттю діалогу в Postgres; заявка збирається кілька хвилин і йде в Telegram одним повним повідомленням. 170+ автотестів, CI на GitHub Actions, а сервер сам розгортає нову версію з main.",
+             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="vkravets.com/core/"),
         dict(when="2026 – дотепер", kind="власна практика", title="CorePulse", sub="AI-автоматизації та веб",
              text="Сайт моєї компанії: живий перший екран із частинок, підбирач «Спробувати», який перетворює бізнес-задачу на схему автоматизації, і асистент на Claude чотирма мовами. У листопаді 2026 я переніс його з Lovable: тепер це статичний сайт на моєму сервері, а чат, підбирач і форма зв’язку працюють через мій бекенд на FastAPI.",
              tags=["Claude API", "React", "FastAPI", "Caddy · DigitalOcean"], url="corepulsedev.com"),
@@ -85,6 +88,9 @@ UA = dict(
         dict(when="Лист 2026", kind="open source", title="ai-web-qa-kit", sub="QA-набір для сайтів і чатботів, зроблених з AI",
              text="Відкритий набір під ліцензією MIT: перевірки верстки на Playwright на різних пристроях і мовах, пошук витоку ключів і відкритого доступу до бази даних, тести чатботів на promptfoo і навичка для Claude, яка перетворює звіти на баг-репорти у форматі Канера.",
              tags=["Playwright", "promptfoo", "gitleaks", "Claude skills"], url="github.com/Gluk-ai/ai-web-qa-kit"),
+        dict(when="Лист 2026", kind="open source", title="field-service-sql", sub="звіти по рахунках на PostgreSQL з тестами",
+             text="Схема і звіти для підрядника, який виставляє рахунки керуючим компаніям: старіння дебіторки, перцентилі строків оплати, виробіток бригад на віконних функціях, перевірки якості даних і функція оплати, що блокує рядок рахунку. Кожен звіт перевірено тестами на маленькому наборі даних із відповідями, порахованими вручну; є нотатки, як ті самі запити виглядають у SQL Server.",
+             tags=["PostgreSQL", "SQL", "pytest", "GitHub Actions"], url="github.com/Gluk-ai/field-service-sql"),
     ],
     exp_h="Досвід",
     jobs=[
@@ -129,8 +135,8 @@ RU = dict(
     work_h="Избранные работы", work_note="вживую, а не слайды",
     projects=[
         dict(when="Ноя 2026 – сейчас", kind="свой бэкенд", title="CorePulse Core", sub="бэкенд на FastAPI · AI-агент в WhatsApp",
-             text="Один Python-бэкенд для всех моих ботов: ассистента в WhatsApp на рабочем бизнес-номере, чата на сайте corepulsedev.com и NorthFrame. Claude отвечает с памятью диалога в Postgres; заявка собирается несколько минут и уходит в Telegram одним полным сообщением. 159 автотестов, CI на GitHub Actions, а сервер сам разворачивает новую версию из main.",
-             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="wa.me/13659902102"),
+             text="Один Python-бэкенд для всех моих ботов: ассистента в WhatsApp на рабочем бизнес-номере, чата на сайте corepulsedev.com и NorthFrame. Claude отвечает с памятью диалога в Postgres; заявка собирается несколько минут и уходит в Telegram одним полным сообщением. 170+ автотестов, CI на GitHub Actions, а сервер сам разворачивает новую версию из main.",
+             tags=["Python · FastAPI", "PostgreSQL", "Claude API", "WhatsApp Cloud API", "Docker"], url="vkravets.com/core/"),
         dict(when="2026 – сейчас", kind="своя практика", title="CorePulse", sub="AI-автоматизации и веб",
              text="Сайт моей компании: живой первый экран из частиц, подборщик «Попробовать», который превращает бизнес-задачу в схему автоматизации, и ассистент на Claude на четырёх языках. В ноябре 2026 я перенёс его с Lovable: теперь это статический сайт на моём сервере, а чат, подборщик и форма связи работают через мой бэкенд на FastAPI.",
              tags=["Claude API", "React", "FastAPI", "Caddy · DigitalOcean"], url="corepulsedev.com"),
@@ -140,6 +146,9 @@ RU = dict(
         dict(when="Ноя 2026", kind="open source", title="ai-web-qa-kit", sub="QA-набор для сайтов и чатботов, сделанных с AI",
              text="Открытый набор под лицензией MIT: проверки вёрстки на Playwright на разных устройствах и языках, поиск утёкших ключей и открытого доступа к базе данных, тесты чатботов на promptfoo и навык для Claude, который превращает отчёты в баг-репорты в формате Канера.",
              tags=["Playwright", "promptfoo", "gitleaks", "Claude skills"], url="github.com/Gluk-ai/ai-web-qa-kit"),
+        dict(when="Ноя 2026", kind="open source", title="field-service-sql", sub="отчёты по счетам на PostgreSQL с тестами",
+             text="Схема и отчёты для подрядчика, который выставляет счета управляющим компаниям: старение дебиторки, перцентили сроков оплаты, выработка бригад на оконных функциях, проверки качества данных и функция оплаты, которая блокирует строку счёта. Каждый отчёт проверен тестами на маленьком наборе данных с ответами, посчитанными вручную; есть заметки, как те же запросы выглядят в SQL Server.",
+             tags=["PostgreSQL", "SQL", "pytest", "GitHub Actions"], url="github.com/Gluk-ai/field-service-sql"),
     ],
     exp_h="Опыт",
     jobs=[
