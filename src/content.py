@@ -3,12 +3,12 @@
 
 EN = dict(
     lang="en", path="/", label="EN", name_native="English", lang_word="Language",
-    title="Vasyl Kravets — AI automation & web developer",
+    title="Vasyl Kravets — AI Automation & Python Developer",
     description="Vasyl Kravets builds AI assistants, automations and websites — and the Python backend they run on — and ships them live. Vaughan, Ontario. Résumé, projects and contact.",
     og_description="AI assistants, automations and websites on my own Python &amp; FastAPI backend — built and shipped live. Vaughan, Ontario.",
     name="Vasyl Kravets", name_lines=["Vasyl", "Kravets"],
     nav=["Work", "Experience", "Skills", "Contact"],
-    role="AI automation &amp; web developer",
+    role="AI Automation &amp; Python Developer",
     intro="I build AI assistants, automations and websites — plus the Python &amp; FastAPI backend they run on — and ship them live. Based in Vaughan, Ontario.",
     status="Open to Design &amp; AI roles in Canada",
     cta_work="See my work", cta_pdf="Download PDF ↓", pdf_short="Download PDF ↓",
@@ -39,7 +39,7 @@ EN = dict(
     ],
     exp_h="Experience",
     jobs=[
-        ("2026 – now", "Founder · AI Automation &amp; Web Developer", "CorePulse, Vaughan ON", "AI assistants for WhatsApp and websites on my own FastAPI backend, n8n automations and interactive websites for construction, manufacturing and field-service companies."),
+        ("2026 – now", "Founder · AI Automation &amp; Python Developer", "CorePulse, Vaughan ON", "AI assistants for WhatsApp and websites on my own FastAPI backend, n8n automations and interactive websites for construction, manufacturing and field-service companies."),
         ("2016 – 2026", "Earlier: technical trades", "Roshel Inc. · commercial glazing, GTA · ENETEP LLC, Ukraine", "Mechanical assembly, window installation and industrial equipment repair."),
     ],
     skills_h="Skills",
@@ -62,12 +62,12 @@ EN = dict(
 
 UA = dict(
     lang="uk", path="/ua/", label="UA", name_native="Українська", lang_word="Мова",
-    title="Василь Кравець — розробник AI-автоматизацій і сайтів",
+    title="Василь Кравець — розробник AI-автоматизацій на Python",
     description="Василь Кравець створює AI-асистентів, автоматизації та сайти — разом із Python-бекендом, на якому вони працюють, — і запускає їх у роботу. Vaughan, Онтаріо. Резюме, проєкти й контакти.",
     og_description="AI-асистенти, автоматизації та сайти на власному бекенді на Python і FastAPI — створені й запущені наживо. Vaughan, Онтаріо.",
     name="Василь Кравець", name_lines=["Василь", "Кравець"],
     nav=["Роботи", "Досвід", "Навички", "Контакт"],
-    role="розробник AI-автоматизацій і сайтів",
+    role="розробник AI-автоматизацій на Python",
     intro="Створюю AI-асистентів, автоматизації та сайти — разом із бекендом на Python і FastAPI, на якому вони працюють, — і запускаю їх у роботу. Живу у Vaughan, Онтаріо.",
     status="Відкритий до ролей Design &amp; AI у Канаді",
     cta_work="Мої роботи", cta_pdf="PDF-резюме (англ.) ↓", pdf_short="PDF (англ.) ↓",
@@ -98,7 +98,7 @@ UA = dict(
     ],
     exp_h="Досвід",
     jobs=[
-        ("2026 – дотепер", "Засновник · розробник AI-автоматизацій і сайтів", "CorePulse, Vaughan ON", "AI-асистенти для WhatsApp і сайтів на власному бекенді на FastAPI, автоматизації на n8n та інтерактивні сайти для будівельних, виробничих і сервісних компаній."),
+        ("2026 – дотепер", "Засновник · розробник AI-автоматизацій на Python", "CorePulse, Vaughan ON", "AI-асистенти для WhatsApp і сайтів на власному бекенді на FastAPI, автоматизації на n8n та інтерактивні сайти для будівельних, виробничих і сервісних компаній."),
         ("2016 – 2026", "Раніше: технічні професії", "Roshel Inc. · комерційне скління, GTA · ENETEP LLC, Україна", "Механічне складання, монтаж вікон і ремонт промислового обладнання."),
     ],
     skills_h="Навички",
@@ -121,12 +121,12 @@ UA = dict(
 
 RU = dict(
     lang="ru", path="/ru/", label="RU", name_native="Русский", lang_word="Язык",
-    title="Василий Кравец — разработчик AI-автоматизаций и сайтов",
+    title="Василий Кравец — разработчик AI-автоматизаций на Python",
     description="Василий Кравец создаёт AI-ассистентов, автоматизации и сайты — вместе с Python-бэкендом, на котором они работают, — и запускает их в работу. Vaughan, Онтарио. Резюме, проекты и контакты.",
     og_description="AI-ассистенты, автоматизации и сайты на собственном бэкенде на Python и FastAPI — созданные и запущенные вживую. Vaughan, Онтарио.",
     name="Василий Кравец", name_lines=["Василий", "Кравец"],
     nav=["Работы", "Опыт", "Навыки", "Контакт"],
-    role="разработчик AI-автоматизаций и сайтов",
+    role="разработчик AI-автоматизаций на Python",
     intro="Создаю AI-ассистентов, автоматизации и сайты — вместе с бэкендом на Python и FastAPI, на котором они работают, — и запускаю их в работу. Живу в Vaughan, Онтарио.",
     status="Открыт к ролям Design &amp; AI в Канаде",
     cta_work="Мои работы", cta_pdf="PDF-резюме (англ.) ↓", pdf_short="PDF (англ.) ↓",
@@ -157,7 +157,7 @@ RU = dict(
     ],
     exp_h="Опыт",
     jobs=[
-        ("2026 – сейчас", "Основатель · разработчик AI-автоматизаций и сайтов", "CorePulse, Vaughan ON", "AI-ассистенты для WhatsApp и сайтов на собственном бэкенде на FastAPI, автоматизации на n8n и интерактивные сайты для строительных, производственных и сервисных компаний."),
+        ("2026 – сейчас", "Основатель · разработчик AI-автоматизаций на Python", "CorePulse, Vaughan ON", "AI-ассистенты для WhatsApp и сайтов на собственном бэкенде на FastAPI, автоматизации на n8n и интерактивные сайты для строительных, производственных и сервисных компаний."),
         ("2016 – 2026", "Раньше: технические профессии", "Roshel Inc. · коммерческое остекление, GTA · ENETEP LLC, Украина", "Механическая сборка, монтаж окон и ремонт промышленного оборудования."),
     ],
     skills_h="Навыки",
