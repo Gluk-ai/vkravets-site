@@ -109,7 +109,7 @@ def page(c):
 <meta property="og:title" content="{esc_attr(c["title"])}">
 <meta property="og:description" content="{esc_attr(c["og_description"])}">
 <meta property="og:url" content="{SITE}{c["path"]}">
-<meta property="og:image" content="{SITE}/og-image.png">
+<meta property="og:image" content="{SITE}/og-image.png?v=20261126">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
