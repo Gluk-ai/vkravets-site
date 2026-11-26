@@ -38,7 +38,7 @@ nav a.hide-sm{display:none}
 .hero-in{display:grid;gap:28px;align-items:center}
 @media (min-width:900px){.hero{padding:96px 0 72px}.hero-in{grid-template-columns:1fr 1.05fr;gap:48px}}
 .hero h1{font:400 clamp(56px,10vw,104px)/.96 var(--serif);letter-spacing:-.025em}
-.role{font:500 clamp(27px,4vw,36px)/1.1 var(--hand);color:#5f5a4f;margin-top:14px}
+.role{font:500 clamp(27px,4vw,36px)/1.1 var(--hand);color:#5f5a4f;margin-top:14px;text-wrap:balance}
 .intro{max-width:44ch;margin-top:20px;color:var(--ink-2);text-wrap:pretty}
 .status{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font:500 12.5px var(--mono);color:var(--muted)}
 .status::before{content:"";width:8px;height:8px;border-radius:50%;background:#5c9a5a;box-shadow:0 0 0 3px #5c9a5a22}
