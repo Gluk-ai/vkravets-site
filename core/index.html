@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CorePulse Core — case study · Vasyl Kravets</title>
+<meta name="description" content="A production Python backend (FastAPI, PostgreSQL) behind a live WhatsApp AI assistant and three website chats: tests, CI, deploys with automatic rollback, and AI safety checks.">
+<link rel="canonical" href="https://vkravets.com/core/">
+<meta property="og:title" content="CorePulse Core — case study">
+<meta property="og:description" content="One Python backend behind my live AI assistants: FastAPI, PostgreSQL, 170+ tests, CI, deploys with automatic rollback.">
+<meta property="og:url" content="https://vkravets.com/core/">
+<meta property="og:image" content="https://vkravets.com/og-image.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<style>
+@font-face{font-family:"Lora";font-weight:400;font-display:swap;src:url(/fonts/lora-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Lora";font-weight:600;font-display:swap;src:url(/fonts/lora-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:400;font-display:swap;src:url(/fonts/inter-tight-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Inter Tight";font-weight:500;font-display:swap;src:url(/fonts/inter-tight-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"JetBrains Mono";font-weight:500;font-display:swap;src:url(/fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Caveat";font-weight:500;font-display:swap;src:url(/fonts/caveat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:"Caveat";font-weight:600;font-display:swap;src:url(/fonts/caveat-latin-600-normal.woff2) format("woff2")}
+:root{--paper:#f5f1e8;--card:#fbf9f3;--ink:#23211d;--ink-2:#4a463e;--muted:#6d675b;--faint:#9c9482;--line:#e2dccd;--line-2:#d6cfbd;--chip:#ede7d9;--ok:#5c9a5a;
+  --serif:Lora,Georgia,serif;--hand:Caveat,"Segoe Print",cursive;--sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;color-scheme:light}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-underline-offset:3px;text-decoration-color:var(--line-2)}
+a:hover{text-decoration-color:var(--ink)}
+h1,h2,h3,p{margin:0}
+ul,ol{margin:0;padding:0;list-style:none}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:6px}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+@media (min-width:700px){.wrap{padding:0 40px}}
+.top{display:flex;justify-content:space-between;align-items:center;height:64px;border-bottom:1px solid var(--line)}
+.mark{font:600 28px/1 var(--hand);text-decoration:none}
+.top nav{display:flex;gap:20px;font-size:14px}
+.top nav a{text-decoration:none;color:var(--muted)}
+.top nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 40px}
+.kicker{font:500 12.5px var(--mono);color:var(--muted);display:inline-flex;align-items:center;gap:8px}
+.kicker::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px #5c9a5a22}
+.hero h1{font:400 clamp(40px,7vw,68px)/1.02 var(--serif);letter-spacing:-.02em;margin-top:14px}
+.hero .sub{font:500 clamp(24px,3.4vw,30px)/1.15 var(--hand);color:#5f5a4f;margin-top:10px}
+.hero p.lead{font:400 clamp(18px,2.1vw,21px)/1.55 var(--serif);max-width:60ch;margin-top:20px;color:var(--ink-2)}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:32px}
+@media (min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+.stat b{display:block;font:400 30px/1.1 var(--serif)}
+.stat span{display:block;font-size:13.5px;line-height:1.4;color:var(--muted);margin-top:4px}
+.sec{padding:48px 0;border-top:1px solid var(--line)}
+.sec h2{font:400 32px/1.15 var(--serif)}
+.sec .num{display:block;font:500 13px var(--mono);color:var(--faint);margin-bottom:6px}
+.sec p{max-width:68ch;margin-top:14px;color:var(--ink-2)}
+.sec h3{font:600 19px/1.3 var(--serif);margin-top:26px}
+.list{margin-top:14px;display:grid;gap:10px;max-width:72ch}
+.list li{position:relative;padding-left:22px;color:var(--ink-2)}
+.list li::before{content:"";position:absolute;left:4px;top:.72em;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--faint)}
+.list b{color:var(--ink);font-weight:500}
+.cards{display:grid;gap:14px;margin-top:22px}
+@media (min-width:760px){.cards{grid-template-columns:1fr 1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:0;font:600 18px/1.3 var(--serif)}
+.card p{margin-top:8px;font-size:15.5px}
+.tag{display:inline-block;font:500 11.5px var(--mono);color:var(--muted);background:var(--chip);border-radius:999px;padding:2px 10px;margin-top:10px}
+figure{margin:26px 0 0}
+figcaption{font:500 20px/1.2 var(--hand);color:var(--muted);margin-top:8px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.diagram{width:100%;min-width:720px;height:auto;background:var(--card);border:1px solid var(--line);border-radius:16px}
+.flow{counter-reset:s;margin-top:16px;display:grid;gap:10px;max-width:72ch}
+.flow li{counter-increment:s;position:relative;padding-left:40px;color:var(--ink-2)}
+.flow li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;border:1px solid var(--line-2);font:500 12px/26px var(--mono);text-align:center;color:var(--muted);background:var(--card)}
+pre{margin:16px 0 0;background:#1f1d1a;color:#ece6d8;border-radius:14px;padding:18px 20px;overflow-x:auto;font:500 13.5px/1.6 var(--mono)}
+pre .c{color:#a39c8a}
+pre .k{color:#e7b77a}
+pre .s{color:#a9c7a0}
+.note{font-size:14px;color:var(--muted);margin-top:10px}
+.honest{background:var(--card);border:1px dashed var(--line-2);border-radius:16px;padding:18px 20px;margin-top:22px;max-width:72ch}
+.honest b{font-weight:500}
+.t{border-collapse:collapse;margin-top:16px;min-width:520px;font-size:15px}
+.t th,.t td{border-bottom:1px solid var(--line);padding:8px 14px;text-align:left}
+.t th{font:500 12px var(--mono);color:var(--faint);letter-spacing:.03em}
+.t td:first-child{font-weight:500}
+.links{display:grid;gap:12px;margin-top:20px}
+@media (min-width:760px){.links{grid-template-columns:1fr 1fr 1fr}}
+.links a{display:block;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;text-decoration:none}
+.links a:hover{border-color:var(--ink)}
+.links b{display:block;font:600 16px/1.3 var(--serif)}
+.links span{font-size:14px;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding:28px 0 48px;font-size:14px;color:var(--muted)}
+@media print{body{font-size:12pt}.top nav,.links{display:none}.sec{padding:20px 0;break-inside:avoid}pre{white-space:pre-wrap}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="mark" href="/">Vasyl Kravets</a>
+  <nav><a href="/#projects">Projects</a><a href="https://github.com/Gluk-ai">GitHub</a><a href="mailto:hello@corepulsedev.com">Contact</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <span class="kicker">In production since 19 Nov 2026</span>
+  <h1>CorePulse Core</h1>
+  <p class="sub">one Python backend behind all my AI assistants</p>
+  <p class="lead">A FastAPI + PostgreSQL service on my own server. It answers a live WhatsApp line, runs the chats and contact forms of three websites, and hands real requests to a person in Telegram. This page shows how it's built and how I keep it from breaking.</p>
+  <div class="stats">
+    <div class="stat"><b>170+</b><span>automated tests, run on a real PostgreSQL in CI</span></div>
+    <div class="stat"><b>5</b><span>channels and demo profiles on one conversation engine</span></div>
+    <div class="stat"><b>2 min</b><span>deploy check interval, with automatic rollback</span></div>
+    <div class="stat" id="stat-live"><b>live</b><span>WhatsApp +1 365 990 2102</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <span class="num">01</span>
+  <h2>Why I built it</h2>
+  <p>My first assistants ran as n8n workflows. They worked, but the logic was spread across nodes and Google Sheets, and almost every day I had to open a workflow and fix something. I couldn't test a change before it reached a real customer.</p>
+  <p>So I moved the logic into one Python service that I can test, review and deploy like normal software. Each channel is a thin adapter; the conversation logic is shared. The n8n workflow I replaced is still there, switched off, as a rollback path.</p>
+</section>
+
+<section class="sec">
+  <span class="num">02</span>
+  <h2>What runs on it</h2>
+  <figure>
+    <div class="scroll"><svg class="diagram" viewBox="0 0 900 360" role="img" aria-label="Architecture: channels go through Caddy to FastAPI adapters, shared conversation logic, PostgreSQL, Claude API and Telegram">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6d675b"/></marker></defs>
+      <g font-family="Inter Tight, Arial, sans-serif" font-size="14" fill="#23211d">
+        <g stroke="#9c9482" fill="#fbf9f3" stroke-width="1.2">
+          <rect x="20" y="40" width="170" height="44" rx="10"/><rect x="20" y="100" width="170" height="44" rx="10"/><rect x="20" y="160" width="170" height="44" rx="10"/><rect x="20" y="220" width="170" height="44" rx="10"/><rect x="20" y="280" width="170" height="44" rx="10"/>
+        </g>
+        <text x="105" y="67" text-anchor="middle">WhatsApp (Meta API)</text>
+        <text x="105" y="127" text-anchor="middle">corepulsedev.com chat</text>
+        <text x="105" y="187" text-anchor="middle">Site contact form</text>
+        <text x="105" y="247" text-anchor="middle">NorthFrame demo</text>
+        <text x="105" y="307" text-anchor="middle">Tactix Defence demo</text>
+        <rect x="240" y="20" width="420" height="320" rx="16" fill="none" stroke="#d6cfbd" stroke-dasharray="5 5"/>
+        <text x="256" y="44" font-family="JetBrains Mono, monospace" font-size="12" fill="#9c9482">my server · Docker · Caddy (HTTPS)</text>
+        <g stroke="#23211d" fill="#fbf9f3" stroke-width="1.2">
+          <rect x="270" y="70" width="150" height="230" rx="12"/>
+          <rect x="460" y="70" width="170" height="110" rx="12"/>
+          <rect x="460" y="210" width="170" height="90" rx="12"/>
+        </g>
+        <text x="345" y="98" text-anchor="middle" font-weight="500">Channel adapters</text>
+        <text x="345" y="124" text-anchor="middle" font-size="12.5" fill="#6d675b">signature check</text>
+        <text x="345" y="144" text-anchor="middle" font-size="12.5" fill="#6d675b">size limits, CORS</text>
+        <text x="345" y="164" text-anchor="middle" font-size="12.5" fill="#6d675b">profile by Origin</text>
+        <text x="545" y="98" text-anchor="middle" font-weight="500">Conversation logic</text>
+        <text x="545" y="124" text-anchor="middle" font-size="12.5" fill="#6d675b">rate limit · memory</text>
+        <text x="545" y="144" text-anchor="middle" font-size="12.5" fill="#6d675b">prompts · tools</text>
+        <text x="545" y="164" text-anchor="middle" font-size="12.5" fill="#6d675b">lead buffering</text>
+        <text x="545" y="250" text-anchor="middle" font-weight="500">PostgreSQL</text>
+        <text x="545" y="272" text-anchor="middle" font-size="12.5" fill="#6d675b">history, leads, requests</text>
+        <g stroke="#9c9482" fill="#fbf9f3" stroke-width="1.2"><rect x="710" y="70" width="170" height="54" rx="10"/><rect x="710" y="150" width="170" height="54" rx="10"/><rect x="710" y="230" width="170" height="54" rx="10"/></g>
+        <text x="795" y="102" text-anchor="middle">Claude API</text>
+        <text x="795" y="182" text-anchor="middle">Telegram (leads, alerts)</text>
+        <text x="795" y="262" text-anchor="middle">GitHub (deploy source)</text>
+        <g stroke="#6d675b" stroke-width="1.2" fill="none" marker-end="url(#a)">
+          <path d="M190 62H268"/><path d="M190 122H268"/><path d="M190 182H268"/><path d="M190 242H268"/><path d="M190 302H268"/>
+          <path d="M420 125H458"/><path d="M545 180V208"/><path d="M630 97H708"/><path d="M630 160Q670 177 708 177"/><path d="M708 257H664"/>
+        </g>
+      </g>
+    </svg></div>
+    <figcaption>five ways in, one brain</figcaption>
+  </figure>
+  <div class="cards">
+    <div class="card"><h3>WhatsApp assistant</h3><p>A live business number on the Meta Cloud API. Answers questions about CorePulse, collects a lead and sends it to me in Telegram.</p><span class="tag">live</span></div>
+    <div class="card"><h3>corepulsedev.com</h3><p>The site chat, the "try it" automation picker and the contact form all go through the core. I moved the site off a no-code builder to my own server.</p><span class="tag">live</span></div>
+    <div class="card"><h3>NorthFrame Windows</h3><p>Portfolio concept: a window-replacement company. Chat in five languages for residents and property managers, requests sorted by AI and sent to a coordinator bot.</p><span class="tag">demo</span></div>
+    <div class="card"><h3>Tactix Defence</h3><p>Portfolio concept: an armoured-vehicle advisor that answers only from its catalogue and politely refuses everything else.</p><span class="tag">demo</span></div>
+  </div>
+</section>
+
+<section class="sec">
+  <span class="num">03</span>
+  <h2>What happens to one message</h2>
+  <ol class="flow">
+    <li>The adapter checks the channel's signature and size limit, then turns the payload into one common <code>IncomingMessage</code>.</li>
+    <li>Rate limit per conversation, plus a global hourly cap per demo profile.</li>
+    <li>The message is saved with its channel ID, which is unique in the database. If WhatsApp retries the same webhook, the second copy is ignored.</li>
+    <li>The last messages of this conversation go to Claude with a layered prompt: shared rules plus a file for the channel. The static part is cached.</li>
+    <li>If Claude decides a person should follow up, it calls a tool. The lead waits in the database, picks up new details, and goes to Telegram as one complete message 5 minutes after the last update.</li>
+    <li>An empty reply is retried once; if Claude still fails, the visitor gets a short fallback, and the error is reported to me.</li>
+    <li>The reply is saved and sent back the channel's own way.</li>
+  </ol>
+  <pre><span class="c"># memory.py (comments translated) — a webhook retry must not produce a second answer</span>
+<span class="k">async def</span> save_user_message(session, conversation_id, text, message_id, rate_limited=<span class="k">False</span>) -&gt; bool:
+    <span class="s">"""Save an incoming message. False if this message_id was already seen."""</span>
+    session.add(Message(conversation_id=conversation_id, role=<span class="s">"user"</span>, content=text,
+                        message_id=message_id, rate_limited=rate_limited))
+    <span class="k">try</span>:
+        <span class="k">await</span> session.commit()
+    <span class="k">except</span> IntegrityError:      <span class="c"># unique constraint on message_id</span>
+        <span class="k">await</span> session.rollback()
+        <span class="k">return False</span>
+    <span class="k">return True</span></pre>
+</section>
+
+<section class="sec">
+  <span class="num">04</span>
+  <h2>How I keep it from breaking</h2>
+  <ul class="list">
+    <li><b>Tests.</b> 170+ pytest tests in 14 files: webhooks and signatures, memory, rate limits, lead buffering and dedup, prompts, each demo profile, security limits. The external APIs (Claude, Meta, Telegram) are always mocked, so tests cost nothing.</li>
+    <li><b>CI on every push.</b> ruff lint and format, the full test suite against a real PostgreSQL 16, then a Docker build of the same image the server runs, with a smoke check inside it.</li>
+    <li><b>Pull requests only.</b> Nothing goes to main directly. I merge every PR that touches production myself; PRs that change only tests or docs merge on their own. PRs that touch deploy files, dependencies or bot logic come to me flagged for a closer look.</li>
+    <li><b>Pull-based deploy.</b> The server checks main every 2 minutes. Before switching it backs up the database, then waits until <code>/health</code> reports the new commit and <code>/ready</code> can reach the database.</li>
+    <li><b>Automatic rollback.</b> If the new version fails the check, the server goes back to the previous commit and tells me in Telegram. After a schema migration it does not roll back on purpose, because old code can't run on the new schema. That's why migrations here only ever add things.</li>
+    <li><b>Alerts and backups.</b> Errors reach my Telegram, no more than once every 10 minutes per error. All databases are backed up daily and kept for 14 days.</li>
+  </ul>
+  <pre><span class="c"># deploy.sh (simplified, messages translated)</span>
+dump=$(make_dump)                       || fail <span class="s">"backup failed, staying on $prev"</span>
+<span class="k">if</span> switch_to <span class="s">"$target"</span> &amp;&amp; wait_ready <span class="s">"$target"</span>; <span class="k">then</span> notify <span class="s">"🟢 deployed $target"</span>; <span class="k">exit</span> 0; <span class="k">fi</span>
+[ -n <span class="s">"$has_migration"</span> ]                && fail <span class="s">"🔴 failed after a migration: no auto-rollback, backup at $dump"</span>
+switch_to <span class="s">"$prev"</span> &amp;&amp; wait_ready <span class="s">"$prev"</span> &amp;&amp; fail <span class="s">"🔴 failed, rolled back to $prev"</span>
+fail <span class="s">"🔴🔴 rollback failed too, manual check needed"</span></pre>
+</section>
+
+<section class="sec">
+  <span class="num">05</span>
+  <h2>AI-specific safety</h2>
+  <ul class="list">
+    <li><b>Prompt-injection runs.</b> A QA script attacks the live prompt with a hidden canary code planted in it. The run fails if the canary or any piece of the system prompt shows up in a reply.</li>
+    <li><b>Stays in its lane.</b> Each assistant answers only from its own knowledge, doesn't invent prices or specs, and the demo bots refuse off-topic requests politely.</li>
+    <li><b>Untrusted input stays data.</b> Visitor names and page languages are cleaned or whitelisted before they reach the prompt.</li>
+    <li><b>Costs and keys.</b> Every profile has its own API key with a spending limit, plus per-conversation and per-profile hourly limits. Secrets never appear in code, tests or logs.</li>
+  </ul>
+</section>
+
+<section class="sec" id="numbers">
+  <span class="num">06</span>
+  <h2>Honest numbers</h2>
+  <div class="honest"><b>There are no paying customers on it yet.</b> It serves my own business line and portfolio demos. Since 17 Nov the database holds 200 messages in 82 conversations, mostly my own tests and automated QA runs; 3 leads reached Telegram. Since 19 Nov the server deployed itself 7 times and never needed a rollback. Everything below is measured, and synthetic tests are labelled as such.</div>
+  <h3>Load test: the bottleneck I found</h3>
+  <p>I ran the core on a local copy with PostgreSQL and replaced Claude with a stub that answers in 2 seconds, like a real model reply. Then I sent hundreds of website chat messages from 10 to 80 visitors at once.</p>
+  <p>Up to 10 visitors it was fine. Above that, throughput stopped at about 5 requests per second and waiting time grew to 14 seconds. The reason: each request kept its database connection while waiting for Claude, and the pool has 10 connections. Releasing the connection before the Claude call fixed it on the test copy:</p>
+  <div class="scroll"><table class="t">
+    <thead><tr><th>Visitors at once</th><th>Before: req/s</th><th>Before: p95</th><th>After: req/s</th><th>After: p95</th></tr></thead>
+    <tbody>
+      <tr><td>10</td><td>4.9</td><td>2.1 s</td><td>4.9</td><td>2.2 s</td></tr>
+      <tr><td>20</td><td>4.4</td><td>8.1 s</td><td>9.6</td><td>2.2 s</td></tr>
+      <tr><td>40</td><td>4.3</td><td>14.4 s</td><td>18.1</td><td>2.4 s</td></tr>
+      <tr><td>80</td><td>—</td><td>—</td><td>30.8</td><td>3.0 s</td></tr>
+    </tbody>
+  </table></div>
+  <p class="note">Synthetic load on a single uvicorn worker in a dev container, not the production server. Claude stubbed with a fixed 2 s delay. With no delay at all the core's own overhead is about 10–15 ms per message. Status: <span id="fix-status">fix in review (pull request #30)</span>.</p>
+  <h3>Before and after: NorthFrame requests</h3>
+  <p>In n8n, a workflow read a Google Sheet every minute to find new requests: once a minute, around the clock: about 1,440 runs a day, 1.4 s each, even when nobody wrote in. It was switched off when NorthFrame moved to the core. In the core, a background task checks its own PostgreSQL table every 30 seconds, and a request that wasn't sent yet survives a restart. The one real request so far reached the coordinator's Telegram 14 seconds after it was submitted, including the AI triage.</p>
+</section>
+
+<section class="sec">
+  <span class="num">07</span>
+  <h2>How I work on it</h2>
+  <p>I don't type most of this code by hand. I decide what to build and how it should be structured, Claude Code writes the change, and I read the diff, run it and merge it. The tests and CI exist so that neither of us has to take the other's word for it. When production misbehaves, I start from the logs.</p>
+  <p>The repository is private because it serves a live business number. I'm happy to walk through it on a call or give read access to a reviewer.</p>
+</section>
+
+<section class="sec">
+  <span class="num">08</span>
+  <h2>Related work</h2>
+  <div class="links">
+    <a href="https://github.com/Gluk-ai/field-service-sql"><b>field-service-sql</b><span>PostgreSQL schema and billing reports with tests: aging, window functions, a payment function with row locking</span></a>
+    <a href="https://github.com/Gluk-ai/ai-web-qa-kit"><b>ai-web-qa-kit</b><span>Open-source QA toolkit for AI-built sites and chatbots</span></a>
+    <a href="https://northframe.corepulsedev.com"><b>NorthFrame Windows</b><span>Live demo running on this core</span></a>
+  </div>
+</section>
+</main>
+
+<footer>Vasyl Kravets · Vaughan, ON · <a href="mailto:hello@corepulsedev.com">hello@corepulsedev.com</a> · <a href="/">vkravets.com</a></footer>
+</div>
+</body>
+</html>

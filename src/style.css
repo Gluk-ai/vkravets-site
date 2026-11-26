@@ -73,7 +73,7 @@ nav a.hide-sm{display:none}
 
 /* projects */
 .projs{display:grid;gap:18px}
-@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}.projs .proj:last-child:nth-child(odd){grid-column:1/-1}}
 .proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .proj:hover{transform:translateY(-3px) rotate(-.25deg);box-shadow:4px 6px 0 var(--line)}
 .proj-meta{display:flex;justify-content:space-between;gap:12px;font:500 12px var(--mono);color:var(--faint)}

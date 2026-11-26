@@ -119,7 +119,7 @@ nav a.hide-sm{display:none}
 
 /* projects */
 .projs{display:grid;gap:18px}
-@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}}
+@media (min-width:900px){.projs{grid-template-columns:1fr 1fr}.projs .proj:last-child:nth-child(odd){grid-column:1/-1}}
 .proj{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .proj:hover{transform:translateY(-3px) rotate(-.25deg);box-shadow:4px 6px 0 var(--line)}
 .proj-meta{display:flex;justify-content:space-between;gap:12px;font:500 12px var(--mono);color:var(--faint)}
@@ -270,7 +270,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
     <div class="wrap two">
       <h2 class="sec-h rv" id="about-h"><span class="num">01</span>Про мене</h2>
       <div class="rv">
-        <p class="lead">Я створюю робочі AI-чатботи, автоматизації процесів і багатомовні сайти від початку до кінця — від бази знань і обмежень для AI до бекенду на FastAPI, бази даних, тестів і власного сервера — на Claude, Python, n8n і сучасних веб-інструментах. До цього — десять років практичної технічної роботи в промисловій механіці та комерційному склінні. Я тестую все перед запуском, а проєкти нижче працюють наживо — відкрийте й спробуйте.</p>
+        <p class="lead">Я створюю робочі AI-чатботи, автоматизації процесів і багатомовні сайти від початку до кінця — від бази знань і обмежень для AI до бекенду на FastAPI, бази даних, тестів і власного сервера — на Claude, Python, n8n і сучасних веб-інструментах. Я тестую все перед запуском, а проєкти нижче працюють наживо — відкрийте й спробуйте.</p>
         <div class="facts"><p><b>Місто</b>Vaughan, Онтаріо</p><p><b>Мови</b>англійська · українська · російська</p><p><b>Практика</b><a href="https://corepulsedev.com">CorePulse</a></p></div>
       </div>
     </div>
@@ -284,9 +284,9 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
           <p class="proj-meta"><span>Лист 2026 – дотепер</span><span>власний бекенд</span></p>
           <h3>CorePulse Core</h3>
           <p class="proj-sub">бекенд на FastAPI · AI-агент у WhatsApp</p>
-          <p class="d">Один Python-бекенд для всіх моїх ботів: асистента у WhatsApp на робочому бізнес-номері, чату на сайті corepulsedev.com і NorthFrame. Claude відповідає з пам’яттю діалогу в Postgres; заявка збирається кілька хвилин і йде в Telegram одним повним повідомленням. 159 автотестів, CI на GitHub Actions, а сервер сам розгортає нову версію з main.</p>
+          <p class="d">Один Python-бекенд для всіх моїх ботів: асистента у WhatsApp на робочому бізнес-номері, чату на сайті corepulsedev.com і NorthFrame. Claude відповідає з пам’яттю діалогу в Postgres; заявка збирається кілька хвилин і йде в Telegram одним повним повідомленням. 170+ автотестів, CI на GitHub Actions, а сервер сам розгортає нову версію з main.</p>
           <ul class="tags"><li class="tag">Python · FastAPI</li><li class="tag">PostgreSQL</li><li class="tag">Claude API</li><li class="tag">WhatsApp Cloud API</li><li class="tag">Docker</li></ul>
-          <a class="proj-link" href="https://wa.me/13659902102" target="_blank" rel="noopener">wa.me/13659902102 ↗</a>
+          <a class="proj-link" href="https://vkravets.com/core/" target="_blank" rel="noopener">vkravets.com/core/ ↗</a>
         </article>
         <article class="proj rv">
           <p class="proj-meta"><span>2026 – дотепер</span><span>власна практика</span></p>
@@ -300,7 +300,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
           <p class="proj-meta"><span>Жовт 2026 – дотепер</span><span>концепт для портфоліо</span></p>
           <h3>NorthFrame Windows</h3>
           <p class="proj-sub">AI-чат + маршрутизація заявок</p>
-          <p class="d">Вигадана компанія з GTA, що замінює вікна. Чат відповідає мешканцям п’ятьма мовами; запити від керівників будинків Claude оцінює за пріоритетом і передає боту координатора в Telegram на n8n. З листопада 2026 сайт працює на моєму сервері, а чат і форми — через мій бекенд на FastAPI. Базу знань я написав із власних чотирьох років роботи на підвісних платформах.</p>
+          <p class="d">Вигадана компанія з GTA, що замінює вікна. Чат відповідає мешканцям п’ятьма мовами; запити від керівників будинків Claude оцінює за пріоритетом і передає боту координатора в Telegram на n8n. З листопада 2026 сайт працює на моєму сервері, а чат і форми — через мій бекенд на FastAPI. Базу знань я написав із власного досвіду на таких об’єктах.</p>
           <ul class="tags"><li class="tag">Claude</li><li class="tag">FastAPI</li><li class="tag">n8n · Telegram</li><li class="tag">5 мов</li></ul>
           <a class="proj-link" href="https://northframe.corepulsedev.com" target="_blank" rel="noopener">northframe.corepulsedev.com ↗</a>
         </article>
@@ -312,6 +312,14 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
           <ul class="tags"><li class="tag">Playwright</li><li class="tag">promptfoo</li><li class="tag">gitleaks</li><li class="tag">Claude skills</li></ul>
           <a class="proj-link" href="https://github.com/Gluk-ai/ai-web-qa-kit" target="_blank" rel="noopener">github.com/Gluk-ai/ai-web-qa-kit ↗</a>
         </article>
+        <article class="proj rv">
+          <p class="proj-meta"><span>Лист 2026</span><span>open source</span></p>
+          <h3>field-service-sql</h3>
+          <p class="proj-sub">звіти по рахунках на PostgreSQL з тестами</p>
+          <p class="d">Схема і звіти для підрядника, який виставляє рахунки керуючим компаніям: старіння дебіторки, перцентилі строків оплати, виробіток бригад на віконних функціях, перевірки якості даних і функція оплати, що блокує рядок рахунку. Кожен звіт перевірено тестами на маленькому наборі даних із відповідями, порахованими вручну; є нотатки, як ті самі запити виглядають у SQL Server.</p>
+          <ul class="tags"><li class="tag">PostgreSQL</li><li class="tag">SQL</li><li class="tag">pytest</li><li class="tag">GitHub Actions</li></ul>
+          <a class="proj-link" href="https://github.com/Gluk-ai/field-service-sql" target="_blank" rel="noopener">github.com/Gluk-ai/field-service-sql ↗</a>
+        </article>
       </div>
     </div>
   </section>
@@ -321,9 +329,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
       <h2 class="sec-h rv" id="exp-h"><span class="num">03</span>Досвід</h2>
       <ol>
         <li class="job rv"><span class="when">2026 – дотепер</span><div><h3>Засновник · розробник AI-автоматизацій і сайтів</h3><p class="where">CorePulse, Vaughan ON</p><p class="d">AI-асистенти для WhatsApp і сайтів на власному бекенді на FastAPI, автоматизації на n8n та інтерактивні сайти для будівельних, виробничих і сервісних компаній.</p></div></li>
-        <li class="job rv"><span class="when">Серп – жовт 2026</span><div><h3>Механік-складальник</h3><p class="where">Roshel Inc.</p><p class="d">Складання вузлів броньованих автомобілів за кресленнями, робочими інструкціями та вимогами якості.</p></div></li>
-        <li class="job rv"><span class="when">2022 – 2026</span><div><h3>Монтажник вікон / склярник</h3><p class="where">Комерційне скління, GTA</p><p class="d">Заміна вікон у заселених житлових вежах до 30 поверхів із підвісних робочих платформ за правилами захисту від падіння Онтаріо.</p></div></li>
-        <li class="job rv"><span class="when">2016 – 2021</span><div><h3>Механік з обслуговування та ремонту промислового обладнання</h3><p class="where">ENETEP LLC, Україна</p><p class="d">Діагностика й ремонт промислового обладнання; читання технічних креслень і документації.</p></div></li>
+        <li class="job rv"><span class="when">2016 – 2026</span><div><h3>Раніше: технічні професії</h3><p class="where">Roshel Inc. · комерційне скління, GTA · ENETEP LLC, Україна</p><p class="d">Механічне складання, монтаж вікон і ремонт промислового обладнання.</p></div></li>
       </ol>
     </div>
   </section>
@@ -336,7 +342,7 @@ a.cert:hover{background:var(--ink);color:var(--paper)}
         <div class="skill-group rv"><h4>Бекенд</h4><ul class="chips"><li class="chip">Python · FastAPI</li><li class="chip">PostgreSQL · SQLAlchemy · Alembic</li><li class="chip">pytest · ruff</li><li class="chip">GitHub Actions CI/CD</li><li class="chip">Docker · Linux-сервер</li></ul></div>
         <div class="skill-group rv"><h4>Автоматизація</h4><ul class="chips"><li class="chip">n8n (self-hosted)</li><li class="chip">WhatsApp Cloud API</li><li class="chip">Telegram Bot API</li><li class="chip">REST і вебхуки</li></ul></div>
         <div class="skill-group rv"><h4>Веб</h4><ul class="chips"><li class="chip">React + Tailwind (з AI)</li><li class="chip">Lovable</li><li class="chip">Git / GitHub</li><li class="chip">DNS і домени</li><li class="chip">Caddy · DigitalOcean</li></ul></div>
-        <div class="skill-group rv"><h4>Також</h4><ul class="chips"><li class="chip">QA і тестування ПЗ</li><li class="chip">Playwright</li><li class="chip">Excel</li><li class="chip">Технічні креслення</li></ul></div>
+        <div class="skill-group rv"><h4>Також</h4><ul class="chips"><li class="chip">QA і тестування ПЗ</li><li class="chip">Playwright</li><li class="chip">Excel</li></ul></div>
       </div>
     </div>
   </section>
